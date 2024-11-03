@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Sprache.Tests;
 
-public class Part05_TransformUnittest
+public class Part05_SelectReturnRegexUnittest
 {
     [Fact]
     public void TestSelect()
