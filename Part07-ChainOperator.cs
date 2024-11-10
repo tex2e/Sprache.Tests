@@ -67,7 +67,7 @@ public class Part07_ChainOperatorUnitest
         Parser<char> exp = Parse.Char('^').Token();
         Parser<string> number = Parse.Number.Token();
 
-        Parser<string> expr = Parse.ChainRightOperator(exp, number,  (op, left, right) => $"({left} {op} {right})");
+        Parser<string> expr = Parse.ChainRightOperator(exp, number, (op, left, right) => $"({left} {op} {right})");
 
         Assert.Equal("(1 ^ 2)", expr.Parse("1 ^ 2"));
         Assert.Equal("(1 ^ (2 ^ (3 ^ 3)))", expr.Parse("1 ^ 2 ^ 3 ^ 3"));
@@ -85,7 +85,7 @@ public class Part07_ChainOperatorUnitest
         Parser<char> exp = Parse.Char('^').Token();
         Parser<string> number = Parse.Number.Token();
 
-        Parser<string> exprX = Parse.ChainRightOperator(exp, number,  (op, left, right) => $"({left} {op} {right})");
+        Parser<string> exprX = Parse.ChainRightOperator(exp, number, (op, left, right) => $"({left} {op} {right})");
 
         Assert.Throws<ParseException>(() => exprX.Parse("a ^ 2 ^ 3"));
 

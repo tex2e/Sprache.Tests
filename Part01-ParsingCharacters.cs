@@ -102,6 +102,7 @@ public class Part01_ParsingCharactersUnittest
         // Parser<char> WhiteSpace = Char(char.IsWhiteSpace, "whitespace")
         Assert.Equal(' ', Parse.WhiteSpace.Parse(" "));
         Assert.Equal('\t', Parse.WhiteSpace.Parse("\t"));
+        Assert.Throws<ParseException>(() => Parse.WhiteSpace.Parse(""));
 
         // [Sprache/src/Sprache/Parse.cs -- WhiteSpace](https://github.com/sprache/Sprache/blob/9d1721bb0dea638e35b9bbb2334fea6f99bf778e/src/Sprache/Parse.cs#L159)
     }
@@ -136,6 +137,8 @@ public class Part01_ParsingCharactersUnittest
 
         // Parser<char> Letter = Char(char.IsLetter, "letter")
         Assert.Equal('a', Parse.Letter.Parse("a"));
+        Assert.Throws<ParseException>(() => Parse.Lower.Parse("1"));
+        Assert.Throws<ParseException>(() => Parse.Lower.Parse("あ"));
 
         // [Sprache/src/Sprache/Parse.cs -- Letter](https://github.com/sprache/Sprache/blob/9d1721bb0dea638e35b9bbb2334fea6f99bf778e/src/Sprache/Parse.cs#L169)
     }
@@ -172,6 +175,7 @@ public class Part01_ParsingCharactersUnittest
 
         // Parser<char> Upper = Char(char.IsUpper, "uppercase letter")
         Assert.Equal('A', Parse.Upper.Parse("A"));
+        Assert.Throws<ParseException>(() => Parse.Upper.Parse("a"));
 
         // [Sprache/src/Sprache/Parse.cs -- Upper](https://github.com/sprache/Sprache/blob/9d1721bb0dea638e35b9bbb2334fea6f99bf778e/src/Sprache/Parse.cs#L184)
     }
