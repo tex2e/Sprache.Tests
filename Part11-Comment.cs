@@ -36,7 +36,7 @@ public class Part11_CommentUnitest
             var comment = new CommentParser();
 
             Assert.Equal("single-line comment", comment.SingleLineComment.Parse("//single-line comment"));
-            Assert.Equal("multi-line comment", comment.MultiLineComment.Parse("/*multi-line comment*/"));
+            Assert.Equal("multi-line comment", comment.MultiLineComment.Parse("/*multi-line comment*/ test"));
 
             // [Sprache/src/Sprache/CommentParser.cs -- CommentParser#SingleLineComment](https://github.com/sprache/Sprache/blob/9d1721bb0dea638e35b9bbb2334fea6f99bf778e/src/Sprache/CommentParser.cs#L72)
 
